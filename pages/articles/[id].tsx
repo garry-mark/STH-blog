@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Article from '../../components/Article';
 
-export default function About() {
+export default function ArticlePage() {
   return (
     <>
       <Head>
