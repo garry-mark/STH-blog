@@ -1,3 +1,32 @@
-.header{
-    background-color: red;
+.layout{
+    @at-root .header{
+        height: $layoutHeaderHeight;
+        background-color: $colorWhite;
+        color: $colorPrimary;
+        box-shadow: $boxShadow;
+        :global(.container) {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 $baseSpacing * 2;
+        }
+        nav{
+            height: $layoutHeaderHeight;
+            line-height: $layoutHeaderHeight;
+        }
+        a{
+            display: inline-block;
+            padding: 0 $baseSpacing * 2;
+        }
+    }
+    @at-root .main{
+        background: no-repeat url('/images/STH-BG.jpg') bottom / cover;
+        :global(.container) {
+            padding: $baseSpacing * 2 0;
+        }
+    }
+    @at-root .footer{
+        text-align: center;
+        height: $layoutHeaderHeight;
+        line-height: $layoutHeaderHeight;
+    }
 }
