@@ -1,41 +1,6 @@
 import * as React from 'react';
 import styles from './Article.module.scss';
-
-interface ArticleVO {
-    aid?: number;
-    title: string;
-    categoryName: string;
-    content: string;
-    contentType: ARTICLE_CONTENT_TYPE;
-    pageView: number;
-    like: number;
-    author: string;
-    origin?: string;
-    originURL?: string;
-    createTime: number;
-    updateTime: number;
-}
-
-enum ARTICLE_CONTENT_TYPE {
-    HTML = 0,
-    MARKDOWN,
-    PLAIN
-}
-
-const defaultArticle = {
-    aid: -1,
-    title: '无',
-    categoryName: '默认',
-    content: '无',
-    contentType: ARTICLE_CONTENT_TYPE.PLAIN,
-    pageView: 0,
-    like: 0,
-    author: '盖瑞',
-    origin: '',
-    originURL: 'https//www.baidu.com',
-    createTime: Date.now(),
-    updateTime: Date.now()
-}
+import { ArticleVO, ARTICLE_CONTENT_TYPE, DEFAULT_ARTICLE } from '../../services/article';
 
 type ArticleState = ArticleVO;
 interface ArticleProps{
@@ -44,7 +9,7 @@ interface ArticleProps{
 
 class ArticleComp extends React.Component<ArticleProps, ArticleState> {
 
-    public state: ArticleState = defaultArticle;
+    public state: ArticleState = DEFAULT_ARTICLE;
 
     private renderContent(
         type: ARTICLE_CONTENT_TYPE = ARTICLE_CONTENT_TYPE.PLAIN,
@@ -60,7 +25,6 @@ class ArticleComp extends React.Component<ArticleProps, ArticleState> {
                 return null;
         }
     }
-
 
     public render() {
         const { aid } = this.props;
