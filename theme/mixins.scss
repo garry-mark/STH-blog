@@ -1,0 +1,38 @@
+@mixin clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+  &:before {
+    content: '';
+    display: table;
+  }
+}
+
+@mixin clearInlineBlockBox {
+  font-size: 0;
+}
+
+@mixin singleEllipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@mixin startEllipsisWithFontCount($fontCount) {
+  display: inline-block;
+  max-width: $fontCount * 1em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@mixin multipleEllipsis($line) {
+  overflow: hidden;
+  word-break: break-word;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+}
