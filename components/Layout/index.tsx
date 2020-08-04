@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Link from 'next/link'
+import Link from 'next/link';
 import styles from './Layout.module.scss';
 
 class LayoutComp extends React.Component<any, any> {
