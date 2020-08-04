@@ -11,7 +11,7 @@ module.exports = withSass({
             test: /.scss$/,
             loader: 'sass-resources-loader',
             options: {
-                resources: ['./theme/var.scss'],
+                resources: ['./theme/var.scss','./theme/mixins.scss'],
             }
         });
 

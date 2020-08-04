@@ -1,6 +1,16 @@
-:global{
-    .container {
-        margin: 0 auto;
-        width: 900px;
-    }
+:global {
+  .container {
+    margin: 0 auto;
+    width: 900px;
+  }
+  .float-left {
+    float: left;
+  }
+  .float-right {
+    float: right;
+  }
+  .panel {
+    overflow: hidden;
+    box-shadow: $boxShadow;
+  }
 }

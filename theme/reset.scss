@@ -1,9 +1,41 @@
+body {
+  line-height: 1.5em;
+  color: $ctNormal;
+}
 
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h5,
+p,
+ul {
+  margin: 0;
+}
 
-body,h1,h2,h3,h4,h5,h5,p,ul{
-    margin: 0;
+h1 {
+  font-size: $fsEL;
+}
+h2 {
+  font-size: $fsLG;
+}
+h3 {
+  font-size: $fsMD;
+}
+h4,
+h5,
+h6 {
+  font-size: $fsBase;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
+  color: $ctNormal;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
 }
