@@ -17,6 +17,10 @@
     a {
       display: inline-block;
       padding: 0 $baseSpacing * 2;
+      &.active {
+        border-bottom: $border;
+        border-bottom-color: $cPrimary;
+      }
     }
   }
   @at-root .main {
