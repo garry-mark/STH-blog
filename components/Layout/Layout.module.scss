@@ -21,6 +21,7 @@
   }
   @at-root .main {
     // background: no-repeat url('/images/STH-BG.jpg') bottom / cover;
+    min-height: 900px;
     :global(.container) {
       padding: $baseSpacing * 2 0;
     }

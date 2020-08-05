@@ -1,5 +1,4 @@
 .home {
-  height: 900px;
   h3 {
     margin-bottom: $baseSpacing * 2;
   }
@@ -7,6 +6,10 @@
     @at-root .item {
       padding: $baseSpacing * 2;
       display: flex;
+
+      & + .item {
+        margin-top: $baseSpacing * 2;
+      }
 
       @at-root .banner {
         width: 200px;
