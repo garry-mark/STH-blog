@@ -1,12 +1,19 @@
-import { AppProps } from 'next/app';
-import Layout from '../components/Layout';
-import '../theme/index.scss';
+import { AppProps } from "next/app";
+import { Provider } from "react-redux";
+import Layout from "../components/Layout";
+import { getStore } from "../store";
+import "../theme/index.scss";
+
+const store = getStore() || {};
 
 function BlogApp({ Component, pageProps }: AppProps) {
-
-  return <Layout>
-    <Component {...pageProps} />
-  </Layout>;
+  return (
+    <Provider store={store}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </Provider>
+  );
 }
 
-export default BlogApp
+export default BlogApp;

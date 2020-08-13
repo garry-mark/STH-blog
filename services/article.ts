@@ -1,3 +1,4 @@
+import { sleep } from "../utils/async-utils";
 export interface ArticleVO {
   aid?: number;
   banner: string;
@@ -75,9 +76,8 @@ export const DEFAULT_RES_PAGING_DATA: Partial<ResponsePagingData<any>> = {
 };
 
 class ArticleService {
-  public articles: ArticleVO[] = [];
   constructor() {
-    this.articles = [];
+    console.log("ArticleService constructor");
   }
 
   public async getArticleById(aid: number): Promise<ArticleVO> {
@@ -87,7 +87,28 @@ class ArticleService {
   public async getArticlesPaging(
     arg: Partial<RequestPagingData> = DEFAULT_REQ_PAGING_DATA
   ): Promise<Partial<ResponsePagingData<ArticleVO>>> {
-    return DEFAULT_RES_PAGING_DATA;
+    const ap: Partial<ResponsePagingData<ArticleVO>> = {
+      ...DEFAULT_RES_PAGING_DATA,
+    };
+    try {
+      // await withTimeout(100)(sleep(1000));
+      await sleep(10000);
+      ap.data = [
+        DEFAULT_ARTICLE,
+        DEFAULT_ARTICLE,
+        DEFAULT_ARTICLE,
+        DEFAULT_ARTICLE,
+        DEFAULT_ARTICLE,
+        DEFAULT_ARTICLE,
+        DEFAULT_ARTICLE,
+        DEFAULT_ARTICLE,
+        DEFAULT_ARTICLE,
+        DEFAULT_ARTICLE,
+      ];
+    } catch (error) {
+      ap.data = [];
+    }
+    return ap;
   }
 }
 
