@@ -41,22 +41,22 @@ export const DEFAULT_ARTICLE = {
   updateTime: 1594946405156,
 };
 
-export interface ResponsePagingData<T> {
-  statusCode: number;
-  message: string;
-  data: Array<T>;
+export interface Pagination {
   total: number;
   currentPage: number;
   pageCount: number;
 }
 
-export interface RequestPagingData {
+export interface ResponsePagingData<T> extends Pagination {
+  statusCode: number;
+  message: string;
+  data: Array<T>;
+}
+
+export interface RequestPagingData extends Pagination {
   condition: string;
   orderBy: string;
   sort: string;
-  total: number;
-  currentPage: number;
-  pageCount: number;
 }
 
 export const DEFAULT_REQ_PAGING_DATA: Partial<RequestPagingData> = {
@@ -70,7 +70,7 @@ export const DEFAULT_REQ_PAGING_DATA: Partial<RequestPagingData> = {
 export const DEFAULT_RES_PAGING_DATA: Partial<ResponsePagingData<any>> = {
   statusCode: 200,
   data: [],
-  total: 0,
+  total: 100,
   currentPage: 1,
   pageCount: 10,
 };
@@ -87,25 +87,17 @@ class ArticleService {
   public async getArticlesPaging(
     arg: Partial<RequestPagingData> = DEFAULT_REQ_PAGING_DATA
   ): Promise<Partial<ResponsePagingData<ArticleVO>>> {
+    const { currentPage = 1 } = arg;
     const ap: Partial<ResponsePagingData<ArticleVO>> = {
       ...DEFAULT_RES_PAGING_DATA,
+      currentPage,
     };
     try {
       // await withTimeout(100)(sleep(1000));
-      await sleep(10000);
-      ap.data = [
-        DEFAULT_ARTICLE,
-        DEFAULT_ARTICLE,
-        DEFAULT_ARTICLE,
-        DEFAULT_ARTICLE,
-        DEFAULT_ARTICLE,
-        DEFAULT_ARTICLE,
-        DEFAULT_ARTICLE,
-        DEFAULT_ARTICLE,
-        DEFAULT_ARTICLE,
-        DEFAULT_ARTICLE,
-      ];
+      await sleep(1000);
+      ap.data = [DEFAULT_ARTICLE];
     } catch (error) {
+      ap.message = error.message;
       ap.data = [];
     }
     return ap;
