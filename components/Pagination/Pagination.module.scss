@@ -1,0 +1,22 @@
+.pagination {
+  height: $baseSpacing * 4;
+  &.disabled {
+    a {
+      cursor: not-allowed !important;
+    }
+  }
+  a {
+    float: left;
+    text-align: center;
+    width: $baseSpacing * 4;
+    height: $baseSpacing * 4;
+    line-height: $baseSpacing * 4;
+    cursor: pointer;
+    &.actived {
+      color: $cPrimary;
+    }
+    &.index:hover {
+      text-decoration: underline;
+    }
+  }
+}
