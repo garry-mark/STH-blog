@@ -2,6 +2,7 @@ import { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import Layout from "../components/Layout";
 import { getStore } from "../store";
+import "../theme/iconfont/iconfont.css";
 import "../theme/index.scss";
 
 const store = getStore() || {};

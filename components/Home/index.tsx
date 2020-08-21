@@ -79,8 +79,14 @@ class HomeComp extends React.Component<any, HomeState> {
                       <p className={styles.introduction}>{a.introduction}</p>
                       <p className={styles.orther}>
                         {a.origin ? <a href={a.originURL}>{a.origin}</a> : null}
-                        <span>{a.like}</span>
-                        <span>{a.pageView}</span>
+                        <span>
+                          <i className="iconfont icon-hot"></i>
+                          {a.like}
+                        </span>
+                        <span>
+                          <i className="iconfont icon-eye"></i>
+                          {a.pageView}
+                        </span>
                         <time className="float-right">
                           {formatTime(a.createTime, "YYYY-MM-dd")}
                         </time>

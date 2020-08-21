@@ -3,6 +3,9 @@
     margin-bottom: $baseSpacing * 2;
   }
   @at-root .articles {
+    @at-root .filter {
+      float: right;
+    }
     @at-root .item {
       padding: $baseSpacing * 2;
       display: flex;
