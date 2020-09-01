@@ -29,7 +29,6 @@ const nextConfig = {
                         }
                     }
                 });
-                console.log(config.module.rules)
                 return config;
             }
         }),
