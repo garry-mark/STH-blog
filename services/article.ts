@@ -1,4 +1,10 @@
 import { sleep } from "../utils/async-utils";
+
+export enum ORDER_BY_TYPE {
+  'TIME' = 0,
+  'TIME_ASC',
+  'HOT'
+}
 export interface ArticleVO {
   aid?: number;
   banner: string;
@@ -55,13 +61,12 @@ export interface ResponsePagingData<T> extends Pagination {
 
 export interface RequestPagingData extends Pagination {
   condition: string;
-  orderBy: string;
+  orderBy: number;
   sort: string;
 }
 
 export const DEFAULT_REQ_PAGING_DATA: Partial<RequestPagingData> = {
-  orderBy: "createTime",
-  sort: "desc",
+  orderBy: 0,
   total: 100,
   currentPage: 1,
   pageCount: 10,

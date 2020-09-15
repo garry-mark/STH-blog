@@ -5,6 +5,10 @@
   @at-root .articles {
     @at-root .filter {
       float: right;
+      width: 150px;
+      button i {
+        vertical-align: middle;
+      }
     }
     @at-root .item {
       padding: $baseSpacing * 2;
