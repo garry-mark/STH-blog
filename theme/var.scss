@@ -4,6 +4,8 @@ $containerWidth: 900px;
 $cPrimary: #914bd2;
 $cWhite: #fff;
 
+$cPrimaryLighter: mix($cWhite, $cPrimary, 90%);
+
 $ctPrimary: #000;
 $ctNormal: #333;
 $ctSecond: #666;
@@ -20,3 +22,4 @@ $fsLG: 24px;
 $fsEL: 32px;
 
 $border: 1px solid #ccc;
+$border-color: #ccc;

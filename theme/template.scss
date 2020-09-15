@@ -1,0 +1,22 @@
+:global {
+  .button {
+    &[data-type="text"] {
+      border: none;
+      background-color: transparent;
+      padding: 0;
+      outline: none;
+
+      span:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      &.active {
+        color: $cPrimary;
+      }
+    }
+
+    & + .button {
+      margin-left: $baseSpacing;
+    }
+  }
+}
