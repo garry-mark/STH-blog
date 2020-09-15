@@ -1,13 +1,12 @@
-import Link from "next/link";
 import { withRouter } from "next/router";
 import * as React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { ORDER_BY_TYPE } from "../../services/article";
 import ActicleActionCreator from "../../store/actions/acticle";
-import formatTime from "../../utils/formatTime";
 import Dropdown, { DropdownMenuItem } from "../Dropdown";
 import Pagination from "../Pagination";
+import Articles from "./Articles";
 import styles from "./Home.module.scss";
 
 // export async function getServerSideProps() {
@@ -130,50 +129,11 @@ class HomeComp extends React.Component<any, HomeState> {
               </button>
             </Dropdown>
           </h3>
-          {status === "rejected" && `${statusCode}: ${message}`}
-          {status === "resolved" && data.length === 0 ? (
-            "暂无数据"
+          {status === "rejected" ? (
+            `${statusCode}: ${message}`
           ) : (
             <>
-              <ul>
-                {data.map((a, index) => (
-                  <li key={index} className={`${styles.item} panel`}>
-                    <Link key={index} href="/posts/[id]" as={`/posts/${a.aid}`}>
-                      <img
-                        className={styles.banner}
-                        src={a.banner}
-                        alt={a.title}
-                      />
-                    </Link>
-                    <div className={styles.content}>
-                      <Link
-                        key={index}
-                        href="/posts/[id]"
-                        as={`/posts/${a.aid}`}
-                      >
-                        <h4 className={styles.title}>
-                          <a>{a.title}</a>
-                        </h4>
-                      </Link>
-                      <p className={styles.introduction}>{a.introduction}</p>
-                      <p className={styles.orther}>
-                        {a.origin ? <a href={a.originURL}>{a.origin}</a> : null}
-                        <span>
-                          <i className="iconfont icon-hot"></i>
-                          {a.like}
-                        </span>
-                        <span>
-                          <i className="iconfont icon-eye"></i>
-                          {a.pageView}
-                        </span>
-                        <time className="float-right">
-                          {formatTime(a.createTime, "YYYY-MM-dd")}
-                        </time>
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+              <Articles data={data} />
               <Pagination
                 total={total}
                 currentPage={currentPage}
